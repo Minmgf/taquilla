@@ -140,6 +140,18 @@ const page = () => {
     const handleCover = async (e) => {
         e.preventDefault();
 
+        if (quantity <= 0) {
+            toast.error('La cantidad de covers debe ser mayor a 0', {
+                duration: 3000,
+                position: 'top-right',
+                style: {
+                    background: '#ff4b4b',
+                    color: '#fff'
+                }
+            });
+            return;
+        }
+
         if (paymentAmount < total) {
             toast.error('El pago es insuficiente para completar la venta', {
                 duration: 3000,
@@ -226,8 +238,8 @@ const page = () => {
                         <p className='text-4xl'>Cantidad: {quantity}</p>
                     </div>
                     <div className="  p-2 flex  justify-center gap-4 ">
-                        <button className='bg-black text-white text-4xl p-4 rounded-xl' onClick={handleIncrement}>+</button>
                         <button className='bg-gray-700 text-white text-4xl p-4 rounded-xl' onClick={handleDecrement}>-</button>
+                        <button className='bg-black text-white text-4xl p-4 rounded-xl' onClick={handleIncrement}>+</button>
                     </div>
                     <div className="  p-2 flex  justify-center gap-4 items-center">
                         <p className='text-4xl'>Total: ${total.toLocaleString()}</p>
