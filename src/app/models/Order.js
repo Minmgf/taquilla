@@ -9,6 +9,10 @@ const OrderSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    totalCovers: {
+        type: Number,
+        required: true
+    },
     baseAmount: {
         type: Number,
         required: true

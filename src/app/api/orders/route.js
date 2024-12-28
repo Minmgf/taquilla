@@ -10,6 +10,7 @@ export async function POST(request) {
         
         const newOrder = await Order.create({
             taquillero: body.taquillero,
+            totalCovers: body.totalCovers,
             coverValue: body.coverValue,
             baseAmount: body.baseAmount,
             date: new Date(),
